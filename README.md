@@ -65,9 +65,11 @@ classoption:
 
 ### JDS Article Metadata
 
-For accepted articles, set publication metadata:
+Metadata is not required for submitted articles. However, you can configure it
+following the example below.
 
 ```yaml
+# example metadata
 firstpage: 1
 month: January
 year: 2025
@@ -131,11 +133,11 @@ You can also use the raw LaTeX commands directly in PDF-only documents.
 Use Quarto's native citation syntax. With `cite-method: natbib` (the default
 for `jds-pdf`), Quarto automatically converts to natbib commands:
 
-| Quarto syntax | natbib output | Example |
-|---|---|---|
-| `@key` | `\citet{key}` | Koenker and Bassett (1978) |
-| `[@key]` | `\citep{key}` | (Koenker and Bassett, 1978) |
-| `[-@key]` | `\citeyear{key}` | (1978) |
+| Quarto syntax | natbib output    | Example                     |
+|---------------|------------------|-----------------------------|
+| `@key`        | `\citet{key}`    | Koenker and Bassett (1978)  |
+| `[@key]`      | `\citep{key}`    | (Koenker and Bassett, 1978) |
+| `[-@key]`     | `\citeyear{key}` | (1978)                      |
 
 This syntax also works for HTML output (via citeproc), so your document
 renders correctly in both formats.
