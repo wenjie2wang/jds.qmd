@@ -2,6 +2,7 @@
 .claude/
 
 # Quarto render artifacts
+*.html
 *.pdf
 *.tex
 !_extensions/**/*.tex
