@@ -1,5 +1,7 @@
-# Style Guide for the Article Journal
+# Style Guide for the Journal of Data Science
 
-**TODO**: Place in this folder the style guide and other original resources useful for the template creation or template usage. 
+This folder contains reference materials used during template development.
+It is excluded from user downloads via `.quartoignore`.
 
-`style-guide` folder is by default added to `.quartoignore` so that it is not downloaded to user project when the format extension is installed with quarto.
+- [JDS Author Guide](https://jds-online.org/journal/JDS/author-guide)
+- [jds.rmd R Markdown template](https://github.com/wenjie2wang/jds.rmd)

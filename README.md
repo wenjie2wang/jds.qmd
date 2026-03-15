@@ -1,53 +1,146 @@
-# Article Format Template (AFT)
+# Journal of Data Science (JDS) Quarto Template
 
-<!-- REMOVE THIS IN YOUR FORMAT TEMPLATE -->
-> Template for creating a new journal article format for Quarto. 
->
-> This repository is a [Github Repository Template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) that you should use as a starter to create a new extension format. Click on the "Use this template" button at the top !
->
-> See information about how-to use this repo template inside the template file or its rendered version at <https://quarto-journals.github.io/article-format-template/>
-
-<!-- ALL THE BELOW SHOULD BE IN YOUR README -->
-
-This is a Quarto template that assists you in creating a manuscript for Article Format Template journals. You can learn more about ...
+This is a Quarto template for creating manuscripts for submission to the
+[Journal of Data Science](https://jds-online.org).
+It uses the `jdsart.cls` LaTeX document class (v0.25, maintained by VTeX).
 
 ## Creating a New Article
 
-You can use this as a template to create an article for an AFT journal. To do this, use the following command:
+Use this as a template to create an article for JDS:
 
 ```bash
-quarto use template quarto-journals/article-format-template
+quarto use template wenjie2wang/jds.qmd
 ```
 
-This will install the extension and create an example qmd file and bibiography that you can use as a starting place for your article.
+This will install the extension and create an example `.qmd` file and
+bibliography that you can use as a starting place for your article.
 
-## Installation For Existing Document
+## Installation for Existing Document
 
-You may also use this format with an existing Quarto project or document. From the quarto project or document directory, run the following command to install this format:
+You may also use this format with an existing Quarto project or document.
+From the project or document directory, run:
 
 ```bash
-quarto add quarto-journals/article-format-template
+quarto add wenjie2wang/jds.qmd
 ```
 
 ## Usage
 
-To use the format, you can use the format names `aft-pdf` and `aft-html`. For example:
-
-```bash
-quarto render article.qmd --to aft-pdf
-```
-
-or in your document yaml
+To use the format, specify `jds-pdf` or `jds-html` as the format in your
+document YAML:
 
 ```yaml
 format:
-  pdf: default
-  aft-pdf:
-    keep-tex: true    
+  jds-pdf:
+    keep-tex: true
+  jds-html: default
 ```
 
-You can view a preview of the rendered template at <https://quarto-journals.github.io/article-format-template/>.
+Or render from the command line:
+
+```bash
+quarto render article.qmd --to jds-pdf
+```
 
 ## Format Options
 
-This format does not have specific format option. Include documentation of such option otherwise. See <https://github.com/quarto-journals/elsevier#format-options> for an example.
+### Document Class Options
+
+Set via `classoption` in the document YAML:
+
+- `inpress` (default): Single-spaced, 11pt font for final production
+- `review`: Double-spaced, 12pt font with line numbers for peer review
+- `linenumber`: Add line numbers (automatically enabled in `review` mode)
+- `letterpaper` (default) or `a4paper`: Paper size
+- `discussion`: For discussion articles
+- `chinese`: For Chinese-language articles
+
+For example, to switch to review mode for submission:
+
+```yaml
+classoption:
+  - letterpaper
+  - review
+```
+
+### JDS Article Metadata
+
+For accepted articles, set publication metadata:
+
+```yaml
+firstpage: 1
+month: January
+year: 2025
+volume: 23
+issue: 1
+doi: 10.6339/25-JDS1234
+```
+
+### Author and Affiliation Format
+
+Authors, affiliations, and footnotes use structured YAML fields that map
+directly to `jdsart.cls` commands:
+
+```yaml
+title: "My Paper Title"
+short-title: "Running Title"  # required, used in page headers
+author:
+  - first: Adam
+    first-init: A.
+    last: Ahen
+    marker: '1,2'        # affiliation markers
+    footnote-id: 1        # optional footnote reference
+    email: foo@bar.com    # optional email
+footnote:
+  - content: Corresponding author
+    type: corresp         # set for corresponding author
+    id: 1
+affiliation:
+  - institution: University of Achievement
+    prefix: Department A  # optional department/unit
+    country: Country A
+    marker: 1
+```
+
+### Custom LaTeX Preamble
+
+Add additional LaTeX packages via the `preamble` field.
+Note that `jdsart.cls` already loads `amsmath`, `amssymb`, `amsthm`,
+`graphicx`, `xcolor`, `natbib`, and `hyperref`; the template also loads
+`booktabs`, `longtable`, and `array`. You do not need to include these.
+
+```yaml
+preamble: |
+  \usepackage{tikz}
+  \usepackage{algorithm2e}
+```
+
+## Shortcodes
+
+The extension provides shortcodes for cross-format markup:
+
+- `{{< latex >}}`: Renders "LaTeX" with proper typesetting
+- `{{< proglang R >}}`: Programming language name (e.g., **R**)
+- `{{< pkg stats >}}`: Software package name (e.g., *stats*)
+
+In PDF output, these map to `\proglang{}`, `\pkg{}` commands from `jdsart.cls`.
+You can also use the raw LaTeX commands directly in PDF-only documents.
+
+## Citations
+
+Use Quarto's native citation syntax. With `cite-method: natbib` (the default
+for `jds-pdf`), Quarto automatically converts to natbib commands:
+
+| Quarto syntax | natbib output | Example |
+|---|---|---|
+| `@key` | `\citet{key}` | Koenker and Bassett (1978) |
+| `[@key]` | `\citep{key}` | (Koenker and Bassett, 1978) |
+| `[-@key]` | `\citeyear{key}` | (1978) |
+
+This syntax also works for HTML output (via citeproc), so your document
+renders correctly in both formats.
+
+## Related
+
+- [jds.rmd](https://github.com/wenjie2wang/jds.rmd): R Markdown template
+  for JDS (the predecessor of this Quarto template)

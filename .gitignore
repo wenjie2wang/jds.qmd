@@ -1,1 +1,20 @@
 .DS_Store
+.claude/
+
+# Quarto render artifacts
+*.pdf
+*.tex
+!_extensions/**/*.tex
+*.log
+*.aux
+*.bbl
+*.blg
+*.out
+*.fls
+*.fdb_latexmk
+*.knit.md
+*_files/
+
+# Format resources copied to root by Quarto
+/jdsart.cls
+/jds.bst
