@@ -42,6 +42,11 @@ classoption:
   - letterpaper
   - inpress
 # - linenumber  # uncomment to add line numbers for submission
+# pretitle: "DISCUSSION"  # optional, e.g., DISCUSSION, INVITED COMMENTARY
+# received: "2024-12-01"
+# revised: "2025-01-10"
+# accepted: "2025-01-15"
+# publishedonline: "2025-02-01"
 ## preamble: |
 ##   \usepackage{...}  # additional LaTeX packages if needed
 abstract: |
