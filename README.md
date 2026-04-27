@@ -78,6 +78,18 @@ issue: 1
 doi: 10.6339/25-JDS1234
 ```
 
+### Publication Dates and Pre-title
+
+These optional fields are typically set by the editorial office after acceptance:
+
+```yaml
+received: "2024-12-01"
+revised: "2025-01-10"
+accepted: "2025-01-15"
+publishedonline: "2025-02-01"
+pretitle: "DISCUSSION"   # e.g., DISCUSSION, INVITED COMMENTARY
+```
+
 ### Author and Affiliation Format
 
 Authors, affiliations, and footnotes use structured YAML fields that map
