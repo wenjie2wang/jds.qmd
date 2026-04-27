@@ -49,6 +49,10 @@ $endif$
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+$endif$
+
 %% ----- Graphics scaling (Quarto convention) -----
 $if(graphics)$
 \makeatletter
