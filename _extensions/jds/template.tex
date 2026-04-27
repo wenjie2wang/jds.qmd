@@ -44,7 +44,9 @@ $endif$
 %% ----- Core packages -----
 %% Note: jdsart.cls already loads fontenc, textcomp, graphicx, xcolor,
 %%       natbib, hyperref, geometry, and fancyhdr.
+$if(pdftex)$
 \usepackage[utf8]{inputenc}
+$endif$
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
