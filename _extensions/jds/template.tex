@@ -180,12 +180,12 @@ $if(bibliography)$
 $if(biblio-title)$
 \renewcommand\refname{$biblio-title$}
 $endif$
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
 $if(biblio-style)$
 \bibliographystyle{$biblio-style$}
 $else$
 \bibliographystyle{jds}
 $endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
 $endif$
 $endif$
 
