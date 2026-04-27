@@ -98,8 +98,11 @@ $if(csl-refs)$
 \newenvironment{CSLReferences}[2]
  {\begin{list}{}%
    {\setlength{\itemindent}{0pt}
-    \setlength{\leftmargin}{\cslhangindent}
-    \setlength{\itemindent}{-1\cslhangindent}
+    \setlength{\leftmargin}{0pt}
+    \ifnum#1>0
+      \setlength{\leftmargin}{\cslhangindent}
+      \setlength{\itemindent}{-1\cslhangindent}
+    \fi
     \setlength{\parsep}{\parskip}
     \setlength{\itemsep}{#2\baselineskip}}}
  {\end{list}}
