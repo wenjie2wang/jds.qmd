@@ -55,7 +55,6 @@ keywords:
   - MCMC
   - quantiles
 bibliography: bibliography.bib
-reference-section-title: References
 format:
   jds-pdf:
     keep-tex: true
